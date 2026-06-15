@@ -74,12 +74,23 @@ public class VisitorController {
         Visitor v = visitorRepository.findById(id).orElse(null);
         if (v != null) {
             v.setStatus(
-                VisitorStatus.REJECTED
-            );
+                    VisitorStatus.REJECTED);
             return visitorRepository.save(v);
         }
-        
+
         return null;
     }
+    @GetMapping("/visitor/pending")
+    public List<Visitor> getPendingVisitors() {
+        return visitorRepository.findByStatus(
+                VisitorStatus.PENDING);
+    }
+    
+    @GetMapping("/visitor/approvd")
+    public List<Visitor> getPpprovedVisitors() {
+        return visitorRepository.findByStatus(VisitorStatus.APPROVED);
+    }
+    
+    
     
 }

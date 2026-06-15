@@ -1,5 +1,6 @@
 package com.neeraj.campusaccess.repository;
 
+import com.neeraj.campusaccess.entity.Feedback;
 import com.neeraj.campusaccess.entity.Visitor;
 import com.neeraj.campusaccess.enums.VisitorStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,3 +13,4 @@ public interface VisitorRepository
     List<Visitor> findByStatus(VisitorStatus status);
 
 }
+
