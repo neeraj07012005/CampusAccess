@@ -1,0 +1,778 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.admin-dashboard {
+  min-height: 100vh;
+
+  background: #f7f8fc;
+
+  color: #111827;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.admin-header {
+  height: 72px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 0 50px;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+}
+
+.admin-header h1 {
+  margin: 0;
+
+  font-size: 24px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.5px;
+}
+
+.admin-header span {
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+.admin-header-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   ADMIN BADGE
+========================================================= */
+
+.admin-badge {
+  background: #eef2ff;
+
+  color: #4f46e5 !important;
+
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  font-size: 12px !important;
+
+  font-weight: 700;
+
+  border: 1px solid #e0e7ff;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.admin-logout {
+  border: 1px solid transparent;
+
+  background: transparent;
+
+  padding: 8px 12px;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  color: #4b5563;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.admin-logout:hover {
+  background: #f3f4f6;
+
+  color: #111827;
+
+  border-radius: 7px;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.admin-content {
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 42px 25px 70px;
+}
+
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+.admin-welcome {
+  margin-bottom: 28px;
+
+  padding: 30px 32px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff 0%,
+      #f5f3ff 55%,
+      #ffffff 100%
+    );
+
+  border: 1px solid #e5e7eb;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.admin-welcome::after {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+
+  height: 190px;
+
+  right: -60px;
+
+  top: -85px;
+
+  background: #c7d2fe;
+
+  border-radius: 50%;
+
+  opacity: 0.35;
+}
+
+.admin-welcome h2 {
+  margin: 0 0 8px;
+
+  font-size: 32px;
+
+  line-height: 1.2;
+
+  font-weight: 750;
+
+  letter-spacing: -0.8px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.admin-welcome p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 15px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   ADMIN CARD
+========================================================= */
+
+.admin-card {
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  padding: 30px;
+
+  border: 1px solid #e8eaf0;
+
+  box-shadow:
+    0 4px 20px rgba(15, 23, 42, 0.04);
+
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.admin-card:hover {
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.admin-card-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.admin-card-header h2 {
+  margin: 0 0 6px;
+
+  font-size: 21px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
+}
+
+.admin-card-header p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   REFRESH
+========================================================= */
+
+.admin-refresh {
+  padding: 9px 15px;
+
+  border: 1px solid #dfe3ea;
+
+  background: #ffffff;
+
+  color: #374151;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.admin-refresh:hover {
+  background: #f8fafc;
+
+  border-color: #cbd5e1;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.admin-message {
+  margin-bottom: 18px;
+
+  padding: 11px 13px;
+
+  border-radius: 8px;
+
+  background: #ecfdf5;
+
+  border: 1px solid #bbf7d0;
+
+  color: #166534;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   VISITOR LIST
+========================================================= */
+
+.admin-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+
+/* =========================================================
+   VISITOR CARD
+========================================================= */
+
+.admin-visitor {
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  padding: 19px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-visitor:hover {
+  border-color: #d8dcf0;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.05);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   VISITOR INFORMATION
+========================================================= */
+
+.admin-visitor-info h3 {
+  margin: 0 0 6px;
+
+  font-size: 17px;
+
+  font-weight: 650;
+
+  color: #111827;
+}
+
+.admin-visitor-info p {
+  margin: 0 0 7px;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+.admin-visitor-info small {
+  color: #9ca3af;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   ACTION AREA
+========================================================= */
+
+.admin-visitor-actions {
+  text-align: right;
+
+  min-width: 180px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.admin-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+
+  font-weight: 750;
+
+  letter-spacing: 0.3px;
+
+  text-transform: uppercase;
+}
+
+.admin-status.pending {
+  background: #fff7ed;
+
+  color: #c2410c;
+
+  border: 1px solid #fed7aa;
+}
+
+.admin-status.approved {
+  background: #ecfdf5;
+
+  color: #047857;
+
+  border: 1px solid #bbf7d0;
+}
+
+.admin-status.rejected {
+  background: #fef2f2;
+
+  color: #dc2626;
+
+  border: 1px solid #fecaca;
+}
+
+
+/* =========================================================
+   ADMIN BUTTONS
+========================================================= */
+
+.admin-buttons {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  margin-top: 12px;
+}
+
+
+/* =========================================================
+   APPROVE BUTTON
+========================================================= */
+
+.approve-button {
+  padding: 9px 14px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #16a34a;
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.approve-button:hover {
+  background: #15803d;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 4px 10px rgba(22, 163, 74, 0.2);
+}
+
+.approve-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   REJECT BUTTON
+========================================================= */
+
+.reject-button {
+  padding: 9px 14px;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #dc2626;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.reject-button:hover {
+  background: #fef2f2;
+
+  border-color: #fca5a5;
+
+  transform: translateY(-1px);
+}
+
+.reject-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   REGISTRATION NUMBER
+========================================================= */
+
+.admin-registration {
+  margin-top: 10px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.admin-registration span {
+  display: block;
+
+  font-size: 11px;
+
+  color: #6b7280;
+}
+
+.admin-registration strong {
+  font-size: 15px;
+
+  letter-spacing: 1px;
+
+  color: #334155;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.admin-empty {
+  text-align: center;
+
+  padding: 45px 20px;
+
+  color: #6b7280;
+
+  border: 1px dashed #d1d5db;
+
+  border-radius: 12px;
+
+  background: #fafbfc;
+}
+
+.admin-empty h3 {
+  margin: 0 0 6px;
+
+  font-size: 17px;
+
+  color: #374151;
+}
+
+.admin-empty p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  /* HEADER */
+
+  .admin-header {
+    height: 65px;
+
+    padding: 0 18px;
+  }
+
+  .admin-header h1 {
+    font-size: 21px;
+  }
+
+  .admin-header span {
+    display: none;
+  }
+
+  .admin-header-right {
+    gap: 8px;
+  }
+
+  .admin-badge {
+    padding: 6px 10px;
+
+    font-size: 11px !important;
+  }
+
+  .admin-logout {
+    padding: 7px 8px;
+
+    font-size: 13px;
+  }
+
+
+  /* CONTENT */
+
+  .admin-content {
+    padding: 28px 15px 50px;
+  }
+
+
+  /* WELCOME */
+
+  .admin-welcome {
+    padding: 25px 21px;
+
+    border-radius: 14px;
+  }
+
+  .admin-welcome h2 {
+    font-size: 27px;
+  }
+
+  .admin-welcome p {
+    font-size: 14px;
+  }
+
+
+  /* CARD */
+
+  .admin-card {
+    padding: 21px;
+
+    border-radius: 14px;
+  }
+
+
+  /* CARD HEADER */
+
+  .admin-card-header {
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .admin-card-header h2 {
+    font-size: 19px;
+  }
+
+  .admin-card-header p {
+    font-size: 13px;
+  }
+
+
+  /* VISITOR */
+
+  .admin-visitor {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 17px;
+  }
+
+  .admin-visitor-info h3 {
+    font-size: 16px;
+  }
+
+  .admin-visitor-info p {
+    font-size: 14px;
+  }
+
+
+  /* ACTIONS */
+
+  .admin-visitor-actions {
+    width: 100%;
+
+    min-width: 0;
+
+    text-align: left;
+  }
+
+
+  /* STATUS */
+
+  .admin-status {
+    font-size: 10px;
+  }
+
+
+  /* BUTTONS */
+
+  .admin-buttons {
+    justify-content: flex-start;
+
+    width: 100%;
+  }
+
+  .approve-button,
+  .reject-button {
+    flex: 1;
+
+    padding: 10px 12px;
+
+    font-size: 13px;
+  }
+
+
+  /* REGISTRATION */
+
+  .admin-registration {
+    margin-top: 8px;
+  }
+}

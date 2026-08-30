@@ -1,4 +1,5 @@
 package com.neeraj.campusaccess.controller;
+import java.util.List;
 
 import com.neeraj.campusaccess.entity.Feedback;
 import com.neeraj.campusaccess.entity.Visitor;
@@ -32,10 +33,22 @@ public class FeedbackController {
         Visitor v = visitorRepository.findById(visitorId).orElse(null);
         if (v != null) {
             feedback.setVisitor(v);
-            return feedbackRepository.save(feedback)
+            return feedbackRepository.save(feedback);
         }
         return null;
     }
+
+    @GetMapping("/feedback")
+    public List<Feedback> getAllFeedback() {
+        return feedbackRepository.findAll();
+    }
+
+    @GetMapping("/feedback/{id}")
+    public Feedback getFeedback(@PathVariable long id) {
+        return feedbackRepository.findById(id).orElse(null);
+    }
+    
+    
     
     
     

@@ -1,0 +1,874 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.guard-dashboard {
+  min-height: 100vh;
+
+  background: #f7f8fc;
+
+  color: #111827;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.guard-header {
+  height: 72px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 0 50px;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+}
+
+.guard-header h1 {
+  margin: 0;
+
+  font-size: 24px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.5px;
+}
+
+.guard-header span {
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+.guard-header-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   GUARD BADGE
+========================================================= */
+
+.guard-badge {
+  background: #eef2ff;
+
+  color: #4f46e5 !important;
+
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  font-size: 12px !important;
+
+  font-weight: 700;
+
+  border: 1px solid #e0e7ff;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.guard-logout {
+  border: 1px solid transparent;
+
+  background: transparent;
+
+  padding: 8px 12px;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  color: #4b5563;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.guard-logout:hover {
+  background: #f3f4f6;
+
+  color: #111827;
+
+  border-radius: 7px;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.guard-content {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 42px 25px 70px;
+}
+
+
+/* =========================================================
+   WELCOME SECTION
+========================================================= */
+
+.guard-welcome {
+  margin-bottom: 28px;
+
+  padding: 30px 32px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff 0%,
+      #f5f3ff 55%,
+      #ffffff 100%
+    );
+
+  border: 1px solid #e5e7eb;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.guard-welcome::after {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+
+  height: 190px;
+
+  right: -60px;
+
+  top: -85px;
+
+  background: #c7d2fe;
+
+  border-radius: 50%;
+
+  opacity: 0.35;
+}
+
+.guard-welcome h2 {
+  margin: 0 0 8px;
+
+  font-size: 32px;
+
+  line-height: 1.2;
+
+  font-weight: 750;
+
+  letter-spacing: -0.8px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.guard-welcome p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 15px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.guard-card {
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  padding: 30px;
+
+  margin-bottom: 24px;
+
+  border: 1px solid #e8eaf0;
+
+  box-shadow:
+    0 4px 20px rgba(15, 23, 42, 0.04);
+
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.guard-card:hover {
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.guard-card-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.guard-card-header h2 {
+  margin: 0 0 6px;
+
+  font-size: 21px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
+}
+
+.guard-card-header p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+.guard-card > h2 {
+  margin: 0 0 6px;
+
+  font-size: 21px;
+
+  font-weight: 700;
+}
+
+.guard-card > p {
+  color: #6b7280;
+
+  margin-top: 0;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   CHECK-IN FORM
+========================================================= */
+
+.checkin-form {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-top: 28px;
+}
+
+.checkin-form label {
+  font-weight: 600;
+
+  margin-bottom: 8px;
+
+  font-size: 14px;
+
+  color: #374151;
+}
+
+.checkin-form input {
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1px solid #dfe3ea;
+
+  border-radius: 9px;
+
+  background: #fafbfc;
+
+  font-size: 16px;
+
+  letter-spacing: 1px;
+
+  color: #111827;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.checkin-form input::placeholder {
+  color: #9ca3af;
+
+  letter-spacing: 0;
+}
+
+.checkin-form input:hover {
+  border-color: #cbd5e1;
+}
+
+.checkin-form input:focus {
+  background: #ffffff;
+
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+
+/* =========================================================
+   CHECK-IN BUTTON
+========================================================= */
+
+.checkin-form button {
+  margin-top: 18px;
+
+  padding: 13px 18px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #6366f1
+    );
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 12px rgba(79, 70, 229, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.checkin-form button:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #4338ca,
+      #4f46e5
+    );
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 18px rgba(79, 70, 229, 0.28);
+}
+
+.checkin-form button:active {
+  transform: translateY(0);
+}
+
+.checkin-form button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.guard-message {
+  margin-top: 20px;
+
+  padding: 11px 13px;
+
+  border-radius: 8px;
+
+  background: #f8fafc;
+
+  color: #4b5563;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   CHECKED-IN SUCCESS CARD
+========================================================= */
+
+.checked-in {
+  margin-top: 25px;
+
+  padding: 21px;
+
+  border: 1px solid #bbf7d0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f0fdf4,
+      #ecfdf5
+    );
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 15px rgba(22, 163, 74, 0.05);
+}
+
+.checked-in h3 {
+  margin-top: 0;
+
+  margin-bottom: 8px;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  color: #166534;
+}
+
+.checked-in p {
+  margin: 8px 0;
+
+  font-size: 14px;
+
+  color: #374151;
+}
+
+
+/* =========================================================
+   ENTERED STATUS
+========================================================= */
+
+.entered-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-top: 10px;
+
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  background: #dcfce7;
+
+  color: #166534;
+
+  border: 1px solid #bbf7d0;
+
+  font-size: 11px;
+
+  font-weight: 750;
+
+  letter-spacing: 0.3px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+========================================================= */
+
+.refresh-button {
+  padding: 9px 15px;
+
+  border: 1px solid #dfe3ea;
+
+  background: #ffffff;
+
+  color: #374151;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.refresh-button:hover {
+  background: #f8fafc;
+
+  border-color: #cbd5e1;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   ENTERED VISITOR LIST
+========================================================= */
+
+.entered-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+
+/* =========================================================
+   ENTERED VISITOR
+========================================================= */
+
+.entered-visitor {
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  padding: 18px 19px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.entered-visitor:hover {
+  border-color: #d8dcf0;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.05);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   ENTERED VISITOR INFO
+========================================================= */
+
+.entered-info h3 {
+  margin: 0 0 6px;
+
+  font-size: 17px;
+
+  font-weight: 650;
+
+  color: #111827;
+}
+
+.entered-info p {
+  margin: 0 0 7px;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+.entered-info small {
+  display: block;
+
+  color: #9ca3af;
+
+  margin-top: 4px;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   EXIT SECTION
+========================================================= */
+
+.exit-section {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 10px;
+}
+
+
+/* =========================================================
+   EXIT BUTTON
+========================================================= */
+
+.exit-button {
+  padding: 9px 16px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #374151;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    all 0.2s ease;
+}
+
+.exit-button:hover {
+  background: #fef2f2;
+
+  border-color: #fecaca;
+
+  color: #dc2626;
+
+  transform: translateY(-1px);
+}
+
+.exit-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+  text-align: center;
+
+  padding: 45px 20px;
+
+  border: 1px dashed #d1d5db;
+
+  border-radius: 12px;
+
+  background: #fafbfc;
+}
+
+.empty-state h3 {
+  margin: 0 0 6px;
+
+  font-size: 17px;
+
+  font-weight: 650;
+}
+
+.empty-state p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .guard-header {
+    height: 65px;
+
+    padding: 0 18px;
+  }
+
+  .guard-header h1 {
+    font-size: 21px;
+  }
+
+  .guard-header span {
+    display: none;
+  }
+
+  .guard-header-right {
+    gap: 8px;
+  }
+
+  .guard-badge {
+    padding: 6px 10px;
+
+    font-size: 11px !important;
+  }
+
+  .guard-logout {
+    padding: 7px 8px;
+
+    font-size: 13px;
+  }
+
+
+  /* MAIN */
+
+  .guard-content {
+    padding: 28px 15px 50px;
+  }
+
+
+  /* WELCOME */
+
+  .guard-welcome {
+    padding: 25px 21px;
+
+    border-radius: 14px;
+  }
+
+  .guard-welcome h2 {
+    font-size: 27px;
+  }
+
+  .guard-welcome p {
+    font-size: 14px;
+  }
+
+
+  /* CARD */
+
+  .guard-card {
+    padding: 21px;
+
+    border-radius: 14px;
+  }
+
+
+  /* CARD HEADER */
+
+  .guard-card-header {
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .guard-card-header h2 {
+    font-size: 19px;
+  }
+
+  .guard-card-header p {
+    font-size: 13px;
+  }
+
+
+  /* FORM */
+
+  .checkin-form {
+    margin-top: 24px;
+  }
+
+  .checkin-form label {
+    font-size: 14px;
+  }
+
+  .checkin-form input {
+    padding: 13px;
+
+    font-size: 15px;
+  }
+
+  .checkin-form button {
+    font-size: 14px;
+
+    padding: 13px;
+  }
+
+
+  /* ENTERED VISITOR */
+
+  .entered-visitor {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 17px;
+  }
+
+  .entered-info h3 {
+    font-size: 16px;
+  }
+
+  .entered-info p {
+    font-size: 14px;
+  }
+
+
+  /* EXIT */
+
+  .exit-section {
+    width: 100%;
+
+    align-items: flex-start;
+  }
+
+  .exit-button {
+    width: 100%;
+
+    font-size: 13px;
+  }
+
+
+  /* EMPTY */
+
+  .empty-state {
+    padding: 38px 15px;
+  }
+}

@@ -9,7 +9,7 @@ public class Feedback {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String desc;
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "visitor_id")
@@ -18,20 +18,20 @@ public class Feedback {
     public Feedback() {
     }
 
-    public Feedback(String desc) {
-        this.desc = desc;
+    public Feedback(String description) {
+        this.description = description;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getDesc() {
-        return this.desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Visitor getVisitor() {
@@ -41,4 +41,4 @@ public class Feedback {
     public void setVisitor(Visitor visitor) {
         this.visitor = visitor;
     }
-} 
+}

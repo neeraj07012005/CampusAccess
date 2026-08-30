@@ -1,0 +1,795 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.student-dashboard {
+  min-height: 100vh;
+
+  background: #f7f8fc;
+
+  color: #111827;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.dashboard-header {
+  height: 72px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 50px;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+
+  font-size: 24px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.5px;
+}
+
+.dashboard-header span {
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+.header-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   ROLE BADGE
+========================================================= */
+
+.role-badge {
+  background: #eef2ff;
+
+  color: #4f46e5 !important;
+
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  font-size: 12px !important;
+
+  font-weight: 700;
+
+  border: 1px solid #e0e7ff;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.logout-button {
+  border: 1px solid transparent;
+
+  background: transparent;
+
+  padding: 8px 12px;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  color: #4b5563;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #f3f4f6;
+
+  color: #111827;
+
+  border-radius: 7px;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.dashboard-content {
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 42px 25px 70px;
+}
+
+
+/* =========================================================
+   WELCOME SECTION
+========================================================= */
+
+.welcome-section {
+  margin-bottom: 28px;
+
+  padding: 30px 32px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef2ff 0%,
+      #f5f3ff 55%,
+      #ffffff 100%
+    );
+
+  border: 1px solid #e5e7eb;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.welcome-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+
+  height: 190px;
+
+  right: -60px;
+
+  top: -85px;
+
+  background: #c7d2fe;
+
+  border-radius: 50%;
+
+  opacity: 0.35;
+}
+
+.welcome-section h2 {
+  margin: 0 0 8px;
+
+  font-size: 32px;
+
+  line-height: 1.2;
+
+  font-weight: 750;
+
+  letter-spacing: -0.8px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.welcome-section p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 15px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   DASHBOARD CARD
+========================================================= */
+
+.dashboard-card {
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  padding: 30px;
+
+  margin-bottom: 24px;
+
+  border: 1px solid #e8eaf0;
+
+  box-shadow:
+    0 4px 20px rgba(15, 23, 42, 0.04);
+
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.dashboard-card:hover {
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.card-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.card-header h2 {
+  margin: 0 0 6px;
+
+  font-size: 21px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
+}
+
+.card-header p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.visitor-form {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+
+  font-weight: 600;
+
+  font-size: 14px;
+
+  color: #374151;
+}
+
+.form-group input {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border: 1px solid #dfe3ea;
+
+  border-radius: 9px;
+
+  background: #fafbfc;
+
+  font-size: 15px;
+
+  color: #111827;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #9ca3af;
+}
+
+.form-group input:hover {
+  border-color: #cbd5e1;
+}
+
+.form-group input:focus {
+  background: #ffffff;
+
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+
+/* =========================================================
+   CREATE BUTTON
+========================================================= */
+
+.create-button {
+  grid-column: 1 / -1;
+
+  width: fit-content;
+
+  padding: 12px 21px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #6366f1
+    );
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 12px rgba(79, 70, 229, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.create-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 18px rgba(79, 70, 229, 0.28);
+}
+
+.create-button:active {
+  transform: translateY(0);
+}
+
+.create-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message {
+  margin-top: 16px;
+
+  color: #4b5563;
+
+  font-size: 14px;
+
+  padding: 11px 13px;
+
+  background: #f8fafc;
+
+  border-radius: 8px;
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+========================================================= */
+
+.refresh-button {
+  padding: 9px 15px;
+
+  border: 1px solid #dfe3ea;
+
+  background: #ffffff;
+
+  color: #374151;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.refresh-button:hover {
+  background: #f8fafc;
+
+  border-color: #cbd5e1;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+  text-align: center;
+
+  padding: 45px 20px;
+
+  border: 1px dashed #d1d5db;
+
+  border-radius: 12px;
+
+  background: #fafbfc;
+}
+
+.empty-state h3 {
+  margin: 0 0 6px;
+
+  font-size: 17px;
+}
+
+.empty-state p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   VISITOR LIST
+========================================================= */
+
+.visitor-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+
+/* =========================================================
+   VISITOR ITEM
+========================================================= */
+
+.visitor-item {
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  padding: 18px 19px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.visitor-item:hover {
+  border-color: #d8dcf0;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.05);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   VISITOR INFO
+========================================================= */
+
+.visitor-info h3 {
+  margin: 0 0 5px;
+
+  font-size: 17px;
+
+  font-weight: 650;
+
+  color: #111827;
+}
+
+.visitor-info p {
+  margin: 0 0 7px;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   DATE / TIME
+========================================================= */
+
+.visitor-info small {
+  display: block;
+
+  color: #9ca3af;
+
+  margin-top: 5px;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.visitor-status {
+  text-align: right;
+}
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+
+  font-weight: 750;
+
+  letter-spacing: 0.3px;
+
+  text-transform: uppercase;
+}
+
+.status.pending {
+  background: #fff7ed;
+
+  color: #c2410c;
+
+  border: 1px solid #fed7aa;
+}
+
+.status.approved {
+  background: #ecfdf5;
+
+  color: #047857;
+
+  border: 1px solid #bbf7d0;
+}
+
+.status.rejected {
+  background: #fef2f2;
+
+  color: #dc2626;
+
+  border: 1px solid #fecaca;
+}
+
+.status.entered {
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  border: 1px solid #bfdbfe;
+}
+
+.status.exited {
+  background: #f8fafc;
+
+  color: #475569;
+
+  border: 1px solid #e2e8f0;
+}
+
+
+/* =========================================================
+   REGISTRATION NUMBER
+========================================================= */
+
+.registration {
+  margin-top: 10px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.registration span {
+  font-size: 11px;
+
+  color: #6b7280;
+}
+
+.registration strong {
+  font-size: 15px;
+
+  letter-spacing: 1px;
+
+  color: #334155;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .dashboard-header {
+    height: 65px;
+
+    padding: 0 18px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 21px;
+  }
+
+  .dashboard-header span {
+    display: none;
+  }
+
+  .header-right {
+    gap: 8px;
+  }
+
+  .role-badge {
+    padding: 6px 10px;
+
+    font-size: 11px !important;
+  }
+
+  .logout-button {
+    padding: 7px 8px;
+
+    font-size: 13px;
+  }
+
+  .dashboard-content {
+    padding: 28px 15px 50px;
+  }
+
+  .welcome-section {
+    padding: 25px 21px;
+
+    border-radius: 14px;
+  }
+
+  .welcome-section h2 {
+    font-size: 27px;
+  }
+
+  .welcome-section p {
+    font-size: 14px;
+  }
+
+  .dashboard-card {
+    padding: 21px;
+
+    border-radius: 14px;
+  }
+
+  .card-header {
+    align-items: flex-start;
+  }
+
+  .card-header h2 {
+    font-size: 19px;
+  }
+
+  .card-header p {
+    font-size: 13px;
+  }
+
+  .visitor-form {
+    grid-template-columns: 1fr;
+
+    gap: 17px;
+  }
+
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-group input {
+    font-size: 15px;
+
+    padding: 13px;
+  }
+
+  .create-button {
+    grid-column: auto;
+
+    width: 100%;
+
+    font-size: 14px;
+  }
+
+  .visitor-item {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 17px;
+  }
+
+  .visitor-info h3 {
+    font-size: 16px;
+  }
+
+  .visitor-info p {
+    font-size: 14px;
+  }
+
+  .visitor-status {
+    text-align: left;
+
+    width: 100%;
+  }
+
+  .registration {
+    margin-top: 8px;
+  }
+}
