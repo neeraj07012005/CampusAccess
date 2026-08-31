@@ -1,30 +1,59 @@
 # CampusAccess
 
-CampusAccess is a University Visitor Management System built using Spring Boot and PostgreSQL.
+> A university visitor management system that digitizes visitor requests, approvals, and campus entry/exit tracking.
 
-## Features
+CampusAccess is a full-stack university visitor management system designed to streamline how visitors are registered, approved, and tracked within a campus.
 
-- Visitor Registration
-- Visitor Approval/Rejection
-- Entry/Exit Tracking
-- Status Management
-- REST APIs
-- PostgreSQL Integration
-- JWT Authentication (In Progress)
+The system provides separate workflows for **Students, Administrators, and Security Guards**, with a Spring Boot backend and PostgreSQL database.
 
-## Tech Stack
+---
 
-- Java
-- Spring Boot
+## ✨ Features
+
+### 👨‍🎓 Student
+- Create visitor requests
+- View submitted visitor requests
+- Track request status
+- View visitor details
+
+### 🛡️ Admin
+- View pending visitor requests
+- Approve or reject visitor requests
+- Manage visitor request statuses
+- Monitor visitor activity
+
+### 👮 Security Guard
+- View approved visitors
+- Mark visitor entry
+- Mark visitor exit
+- Track active visitors on campus
+
+### ⚙️ Backend
+- RESTful APIs
 - Spring Data JPA
-- PostgreSQL
-- Maven
-- JWT
+- PostgreSQL database integration
+- Role-based workflow
+- Request status management
+- JWT authentication *(in progress)*
 
-## Workflow
+---
 
-Student → Create Visitor Request
+## 🏗️ System Workflow
 
-Admin → Approve / Reject Request
-
-Guard → Mark Entry / Exit
+```text
+Student
+   │
+   │ Create Visitor Request
+   ▼
+Admin
+   │
+   ├── Approve ──────┐
+   │                 │
+   └── Reject        │
+                     ▼
+                  Guard
+                     │
+              Mark Entry / Exit
+                     │
+                     ▼
+              Visitor Tracking
