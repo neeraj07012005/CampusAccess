@@ -2,6 +2,15 @@ import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import "./ResetPassword.css";
 
+
+// =====================================================
+// API URL
+// =====================================================
+
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:8080";
+
+
 function ResetPassword() {
 
   const [searchParams] = useSearchParams();
@@ -15,33 +24,55 @@ function ResetPassword() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+
+  // =====================================================
+  // RESET PASSWORD
+  // =====================================================
+
   const handleReset = async (e) => {
 
     e.preventDefault();
 
     setMessage("");
 
+
     if (!token) {
-      setMessage("Invalid or missing reset link.");
+
+      setMessage(
+        "Invalid or missing reset link."
+      );
+
       return;
     }
+
 
     if (newPassword !== confirmPassword) {
-      setMessage("Passwords do not match.");
+
+      setMessage(
+        "Passwords do not match."
+      );
+
       return;
     }
+
 
     if (newPassword.length < 6) {
-      setMessage("Password must be at least 6 characters.");
+
+      setMessage(
+        "Password must be at least 6 characters."
+      );
+
       return;
     }
 
+
     setLoading(true);
+
 
     try {
 
       const response = await fetch(
-        "http://localhost:8080/user/reset-password",
+        `${API_URL}/user/reset-password`,
         {
           method: "POST",
 
@@ -56,37 +87,65 @@ function ResetPassword() {
         }
       );
 
-      const data = await response.text();
+
+      const data =
+        await response.text();
+
 
       if (!response.ok) {
-        throw new Error(data || "Password reset failed");
+
+        throw new Error(
+          data || "Password reset failed"
+        );
+
       }
 
-      setMessage("Password reset successfully! Redirecting to login...");
+
+      setMessage(
+        "Password reset successfully! Redirecting to login..."
+      );
+
 
       setNewPassword("");
       setConfirmPassword("");
 
+
       setTimeout(() => {
+
         navigate("/");
+
       }, 2000);
 
-    } catch (error) {
+    }
 
-      console.error(error);
+
+    catch (error) {
+
+      console.error(
+        error
+      );
+
 
       setMessage(
         error.message ||
         "Invalid or expired reset link."
       );
 
-    } finally {
+    }
+
+
+    finally {
 
       setLoading(false);
 
     }
+
   };
 
+
+  // =====================================================
+  // UI
+  // =====================================================
 
   return (
 
@@ -94,13 +153,18 @@ function ResetPassword() {
 
       <div className="reset-box">
 
-        <h1>CampusAccess</h1>
+        <h1>
+          CampusAccess
+        </h1>
 
         <p className="reset-subtitle">
           Reset your password
         </p>
 
-        <form onSubmit={handleReset}>
+
+        <form
+          onSubmit={handleReset}
+        >
 
           <label>
             New Password
@@ -116,6 +180,7 @@ function ResetPassword() {
             required
           />
 
+
           <label>
             Confirm Password
           </label>
@@ -130,22 +195,28 @@ function ResetPassword() {
             required
           />
 
+
           <button
             type="submit"
             disabled={loading}
           >
+
             {loading
               ? "Resetting..."
               : "Reset Password"
             }
+
           </button>
 
         </form>
 
+
         {message && (
+
           <p className="reset-message">
             {message}
           </p>
+
         )}
 
       </div>
@@ -153,6 +224,8 @@ function ResetPassword() {
     </div>
 
   );
+
 }
+
 
 export default ResetPassword;

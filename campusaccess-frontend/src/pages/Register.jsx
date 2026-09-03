@@ -1,6 +1,15 @@
 import { useState } from "react";
 import "./Register.css";
 
+
+// =====================================================
+// API URL
+// =====================================================
+
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:8080";
+
+
 function Register() {
 
   const [username, setUsername] = useState("");
@@ -10,6 +19,10 @@ function Register() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+
+  // =====================================================
+  // REGISTER
+  // =====================================================
 
   const handleRegister = async (e) => {
 
@@ -21,7 +34,7 @@ function Register() {
     try {
 
       const response = await fetch(
-        "http://localhost:8080/user/register",
+        `${API_URL}/user/register`,
         {
           method: "POST",
 
@@ -58,7 +71,11 @@ function Register() {
 
       const data = await response.json();
 
-      console.log("REGISTERED USER:", data);
+      console.log(
+        "REGISTERED USER:",
+        data
+      );
+
 
       setMessage(
         "Registration successful! You can now login."
@@ -71,7 +88,9 @@ function Register() {
 
     } catch (error) {
 
-      console.error(error);
+      console.error(
+        error
+      );
 
       setMessage(
         "Registration failed. Username may already exist."
@@ -82,8 +101,13 @@ function Register() {
       setLoading(false);
 
     }
+
   };
 
+
+  // =====================================================
+  // UI
+  // =====================================================
 
   return (
 
@@ -100,7 +124,9 @@ function Register() {
         </p>
 
 
-        <form onSubmit={handleRegister}>
+        <form
+          onSubmit={handleRegister}
+        >
 
 
           {/* USERNAME */}

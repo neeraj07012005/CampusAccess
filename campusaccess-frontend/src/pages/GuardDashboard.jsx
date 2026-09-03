@@ -1,16 +1,26 @@
 import { useEffect, useState } from "react";
 import "./GuardDashboard.css";
 
+
+// =====================================================
+// API URL
+// =====================================================
+
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:8080";
+
+
+// =====================================================
+// GUARD DASHBOARD
+// =====================================================
+
 function GuardDashboard() {
 
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [visitor, setVisitor] = useState(null);
-
   const [enteredVisitors, setEnteredVisitors] = useState([]);
-
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-
   const [exitLoading, setExitLoading] = useState(null);
 
 
@@ -44,7 +54,7 @@ function GuardDashboard() {
     try {
 
       const response = await fetch(
-        "http://localhost:8080/visitor/entered",
+        `${API_URL}/visitor/entered`,
         {
           method: "GET",
 
@@ -169,7 +179,7 @@ function GuardDashboard() {
     try {
 
       const response = await fetch(
-        `http://localhost:8080/visitor/${registrationNumber}/enter`,
+        `${API_URL}/visitor/${registrationNumber}/enter`,
         {
           method: "PUT",
 
@@ -301,7 +311,7 @@ function GuardDashboard() {
 
 
       const response = await fetch(
-        `http://localhost:8080/visitor/${id}/exit`,
+        `${API_URL}/visitor/${id}/exit`,
         {
           method: "PUT",
 
@@ -755,6 +765,7 @@ function GuardDashboard() {
     </div>
 
   );
+
 }
 
 

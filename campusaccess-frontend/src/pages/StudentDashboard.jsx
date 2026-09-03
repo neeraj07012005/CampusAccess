@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import "./StudentDashboard.css";
 
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:8080";
+
 function StudentDashboard() {
 
   const [visitors, setVisitors] = useState([]);
@@ -37,7 +40,7 @@ function StudentDashboard() {
     try {
 
       const response = await fetch(
-        "http://localhost:8080/visitor/my",
+        `${API_URL}/visitor/my`,
         {
           method: "GET",
 
@@ -55,6 +58,7 @@ function StudentDashboard() {
         "GET VISITORS STATUS:",
         response.status
       );
+
 
       console.log(
         "GET VISITORS RESPONSE:",
@@ -108,6 +112,7 @@ function StudentDashboard() {
         "GET VISITORS ERROR:",
         error
       );
+
 
       setMessage(
         "Could not connect to server."
@@ -164,7 +169,7 @@ function StudentDashboard() {
     try {
 
       const response = await fetch(
-        "http://localhost:8080/visitor",
+        `${API_URL}/visitor`,
         {
           method: "POST",
 
@@ -190,6 +195,7 @@ function StudentDashboard() {
         "CREATE VISITOR STATUS:",
         response.status
       );
+
 
       console.log(
         "CREATE VISITOR RESPONSE:",
@@ -261,6 +267,7 @@ function StudentDashboard() {
         "CREATE VISITOR ERROR:",
         error
       );
+
 
       setMessage(
         "Could not connect to server."

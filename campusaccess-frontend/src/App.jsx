@@ -17,6 +17,14 @@ import "./App.css";
 
 
 // =====================================================
+// API URL
+// =====================================================
+
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:8080";
+
+
+// =====================================================
 // LOGIN
 // =====================================================
 
@@ -46,7 +54,7 @@ function Login() {
       // =================================================
 
       const response = await fetch(
-        "http://localhost:8080/user/login",
+        `${API_URL}/user/login`,
         {
           method: "POST",
 
@@ -94,9 +102,7 @@ function Login() {
       // =================================================
       // SAVE JWT
       //
-      // IMPORTANT:
-      // sessionStorage is used instead of localStorage.
-      // Each browser tab gets its own token.
+      // sessionStorage keeps each browser tab separate.
       // =================================================
 
       sessionStorage.setItem(
@@ -110,7 +116,7 @@ function Login() {
       // =================================================
 
       const userResponse = await fetch(
-        "http://localhost:8080/user/me",
+        `${API_URL}/user/me`,
         {
           method: "GET",
 
@@ -194,7 +200,9 @@ function Login() {
 
         // Unknown role
 
-        sessionStorage.removeItem("token");
+        sessionStorage.removeItem(
+          "token"
+        );
 
         setMessage(
           "Unknown user role: " + role

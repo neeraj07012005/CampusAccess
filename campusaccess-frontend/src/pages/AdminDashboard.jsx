@@ -1,14 +1,24 @@
 import { useEffect, useState } from "react";
 import "./AdminDashboard.css";
 
+
+// =====================================================
+// API URL
+// =====================================================
+
+const API_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:8080";
+
+
+// =====================================================
+// ADMIN DASHBOARD
+// =====================================================
+
 function AdminDashboard() {
 
   const [visitors, setVisitors] = useState([]);
-
   const [message, setMessage] = useState("");
-
   const [loading, setLoading] = useState(false);
-
   const [actionLoading, setActionLoading] = useState(null);
 
 
@@ -21,9 +31,7 @@ function AdminDashboard() {
     const token = sessionStorage.getItem("token");
 
     if (!token) {
-
       setMessage("Please login again.");
-
       return;
     }
 
@@ -33,7 +41,7 @@ function AdminDashboard() {
       setLoading(true);
 
       const response = await fetch(
-        "http://localhost:8080/visitor",
+        `${API_URL}/visitor`,
         {
           method: "GET",
 
@@ -164,7 +172,7 @@ function AdminDashboard() {
 
 
       const response = await fetch(
-        `http://localhost:8080/visitor/${id}/approve`,
+        `${API_URL}/visitor/${id}/approve`,
         {
           method: "PUT",
 
@@ -281,7 +289,7 @@ function AdminDashboard() {
 
 
       const response = await fetch(
-        `http://localhost:8080/visitor/${id}/reject`,
+        `${API_URL}/visitor/${id}/reject`,
         {
           method: "PUT",
 
@@ -741,6 +749,7 @@ function AdminDashboard() {
     </div>
 
   );
+
 }
 
 
