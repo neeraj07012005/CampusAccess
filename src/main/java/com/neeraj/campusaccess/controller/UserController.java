@@ -7,6 +7,7 @@ import com.neeraj.campusaccess.entity.AppUser;
 import com.neeraj.campusaccess.repository.AppUserRepository;
 import com.neeraj.campusaccess.security.JwtService;
 import com.neeraj.campusaccess.service.PasswordResetService;
+import com.neeraj.campusaccess.service.RegistrationOtpService;
 
 import jakarta.validation.Valid;
 
@@ -25,6 +26,7 @@ public class UserController {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final PasswordResetService passwordResetService;
+    private final RegistrationOtpService registrationOtpService;
 
 
     // =========================
@@ -35,12 +37,49 @@ public class UserController {
             AppUserRepository appUserRepository,
             PasswordEncoder passwordEncoder,
             JwtService jwtService,
-            PasswordResetService passwordResetService) {
+            PasswordResetService passwordResetService,
+            RegistrationOtpService registrationOtpService) {
 
         this.appUserRepository = appUserRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
         this.passwordResetService = passwordResetService;
+        this.registrationOtpService = registrationOtpService;
+    }
+
+
+    // =========================
+    // REGISTER - SEND OTP
+    // =========================
+
+    @PostMapping("/register/send-otp")
+    public String sendRegistrationOtp(
+            @Valid @RequestBody AppUser appUser) {
+
+        registrationOtpService.sendOtp(
+                appUser.getUsername(),
+                appUser.getEmail(),
+                appUser.getPassword(),
+                appUser.getRole().name()
+        );
+
+        return "OTP sent successfully";
+    }
+
+
+    // =========================
+    // REGISTER - VERIFY OTP
+    // =========================
+
+    @PostMapping("/register/verify-otp")
+    public AppUser verifyRegistrationOtp(
+            @RequestParam String email,
+            @RequestParam String otp) {
+
+        return registrationOtpService.verifyOtp(
+                email,
+                otp
+        );
     }
 
 

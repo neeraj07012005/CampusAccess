@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./Register.css";
 
-
 // =====================================================
 // API URL
 // =====================================================
@@ -13,6 +12,7 @@ const API_URL =
 function Register() {
 
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("STUDENT");
 
@@ -44,6 +44,7 @@ function Register() {
 
           body: JSON.stringify({
             username: username,
+            email: email,
             password: password,
             role: role
           })
@@ -51,25 +52,78 @@ function Register() {
       );
 
 
+      const responseText =
+        await response.text();
+
+
+      console.log(
+        "REGISTER STATUS:",
+        response.status
+      );
+
+      console.log(
+        "REGISTER RESPONSE:",
+        responseText
+      );
+
+
+      // =================================================
+      // HANDLE ERROR
+      // =================================================
+
       if (!response.ok) {
 
-        const errorText = await response.text();
+        let errorMessage =
+          `Registration failed (${response.status})`;
 
-        console.log(
-          "REGISTER STATUS:",
-          response.status
-        );
 
-        console.log(
-          "REGISTER ERROR:",
-          errorText
-        );
+        if (responseText) {
 
-        throw new Error("Registration failed");
+          try {
+
+            const errorData =
+              JSON.parse(responseText);
+
+            errorMessage =
+              errorData.message ||
+              errorData.error ||
+              errorData.detail ||
+              responseText;
+
+          } catch {
+
+            errorMessage =
+              responseText;
+
+          }
+
+        }
+
+        throw new Error(errorMessage);
       }
 
 
-      const data = await response.json();
+      // =================================================
+      // SUCCESS
+      // =================================================
+
+      let data = null;
+
+
+      if (responseText) {
+
+        try {
+
+          data = JSON.parse(responseText);
+
+        } catch {
+
+          data = responseText;
+
+        }
+
+      }
+
 
       console.log(
         "REGISTERED USER:",
@@ -81,22 +135,36 @@ function Register() {
         "Registration successful! You can now login."
       );
 
+
       setUsername("");
+      setEmail("");
       setPassword("");
       setRole("STUDENT");
 
+    }
 
-    } catch (error) {
+
+    // ===================================================
+    // ERROR
+    // ===================================================
+
+    catch (error) {
 
       console.error(
+        "REGISTER ERROR:",
         error
       );
 
+
       setMessage(
-        "Registration failed. Username may already exist."
+        error.message ||
+        "Registration failed. Please try again."
       );
 
-    } finally {
+    }
+
+
+    finally {
 
       setLoading(false);
 
@@ -124,9 +192,7 @@ function Register() {
         </p>
 
 
-        <form
-          onSubmit={handleRegister}
-        >
+        <form onSubmit={handleRegister}>
 
 
           {/* USERNAME */}
@@ -144,6 +210,23 @@ function Register() {
             placeholder="Enter username"
             minLength="3"
             maxLength="20"
+            required
+          />
+
+
+          {/* EMAIL */}
+
+          <label>
+            Email
+          </label>
+
+          <input
+            type="email"
+            value={email}
+            onChange={(e) =>
+              setEmail(e.target.value)
+            }
+            placeholder="Enter email"
             required
           />
 
@@ -212,6 +295,8 @@ function Register() {
         </form>
 
 
+        {/* MESSAGE */}
+
         {message && (
 
           <p className="register-message">
@@ -221,6 +306,8 @@ function Register() {
         )}
 
 
+        {/* BACK TO LOGIN */}
+
         <button
           className="back-login"
           onClick={() =>
@@ -229,6 +316,7 @@ function Register() {
         >
           Back to Login
         </button>
+
 
       </div>
 

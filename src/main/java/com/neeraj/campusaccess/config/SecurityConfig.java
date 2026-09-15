@@ -28,6 +28,10 @@ public class SecurityConfig {
     private final CustomUserDetailsService userDetailsService;
 
 
+    // =========================
+    // CONSTRUCTOR
+    // =========================
+
     public SecurityConfig(
             JwtService jwtService,
             CustomUserDetailsService userDetailsService) {
@@ -87,21 +91,32 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
 
-                        // Public endpoints
+                        // =========================
+                        // PUBLIC ENDPOINTS
+                        // =========================
+
                         .requestMatchers(
                                 "/user/register",
+                                "/user/register/send-otp",
+                                "/user/register/verify-otp",
                                 "/user/login",
                                 "/user/forgot-password",
                                 "/user/reset-password"
                         ).permitAll()
 
 
-                        // Everything else requires JWT
+                        // =========================
+                        // PROTECTED ENDPOINTS
+                        // =========================
+
                         .anyRequest().authenticated()
                 )
 
 
-                // JWT filter
+                // =========================
+                // JWT FILTER
+                // =========================
+
                 .addFilterBefore(
                         jwtAuthenticationFilter(),
                         UsernamePasswordAuthenticationFilter.class
