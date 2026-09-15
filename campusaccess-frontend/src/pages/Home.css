@@ -1,0 +1,509 @@
+/* =====================================================
+   HOME PAGE
+===================================================== */
+
+.home-page {
+  min-height: 100vh;
+  background: #f7f9fc;
+  color: #172033;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.home-navbar {
+  height: 76px;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid #e8ebf0;
+}
+
+.home-logo {
+  font-size: 25px;
+  font-weight: 800;
+  cursor: pointer;
+  color: #172033;
+}
+
+.home-logo span {
+  color: #2563eb;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-buttons button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-login {
+  background: white;
+  border: 1px solid #d8dde7;
+  color: #172033;
+}
+
+.nav-register {
+  background: #2563eb;
+  border: 1px solid #2563eb;
+  color: white;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-section {
+  min-height: 620px;
+  padding: 90px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+  background: linear-gradient(
+    135deg,
+    #f8fbff 0%,
+    #eef5ff 100%
+  );
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #e5efff;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 22px;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: 58px;
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+.hero-content h1 span {
+  color: #2563eb;
+}
+
+.hero-content p {
+  max-width: 600px;
+  margin-top: 25px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #5c6678;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 14px 23px;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-button {
+  border: none;
+  background: #2563eb;
+  color: white;
+}
+
+.secondary-button {
+  border: 1px solid #d4dbe7;
+  background: white;
+  color: #172033;
+}
+
+
+/* =====================================================
+   HERO CARD
+===================================================== */
+
+.hero-card {
+  width: 390px;
+  padding: 30px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 20px 50px rgba(30, 50, 90, 0.12);
+  border: 1px solid #e6eaf0;
+}
+
+.card-header {
+  font-size: 15px;
+  font-weight: 700;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background: #22c55e;
+  border-radius: 50%;
+  margin-right: 9px;
+}
+
+.workflow-mini {
+  padding-top: 24px;
+}
+
+.mini-step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.mini-number {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #edf4ff;
+  color: #2563eb;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.mini-step strong {
+  font-size: 15px;
+}
+
+.mini-step p {
+  margin: 4px 0 0;
+  color: #7a8495;
+  font-size: 13px;
+}
+
+.mini-line {
+  width: 2px;
+  height: 28px;
+  margin: 5px 0 5px 20px;
+  background: #dce4f0;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.workflow-section,
+.demo-section {
+  padding: 100px 8%;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 55px;
+}
+
+.section-label {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.section-heading h2,
+.tech-section h2 {
+  margin: 0;
+  font-size: 38px;
+  letter-spacing: -1px;
+}
+
+.section-heading p {
+  color: #697386;
+  line-height: 1.7;
+  margin-top: 15px;
+}
+
+
+/* =====================================================
+   WORKFLOW CARDS
+===================================================== */
+
+.workflow-grid {
+  display: grid;
+  grid-template-columns: 1fr 45px 1fr 45px 1fr;
+  align-items: center;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.workflow-card {
+  min-height: 260px;
+  padding: 30px;
+  border-radius: 15px;
+  background: white;
+  border: 1px solid #e5e9f0;
+  box-shadow: 0 10px 30px rgba(20, 35, 60, 0.05);
+}
+
+.workflow-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 800;
+  background: #edf4ff;
+  color: #2563eb;
+}
+
+.workflow-card h3 {
+  margin-top: 25px;
+  font-size: 21px;
+}
+
+.workflow-card p {
+  color: #697386;
+  line-height: 1.6;
+}
+
+.workflow-status {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: #eef8f1;
+  color: #16803a;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.workflow-arrow {
+  text-align: center;
+  font-size: 25px;
+  color: #a4adbb;
+}
+
+
+/* =====================================================
+   DEMO
+===================================================== */
+
+.demo-section {
+  background: #f0f4fa;
+}
+
+.credentials-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.credential-card {
+  background: white;
+  padding: 28px;
+  border-radius: 14px;
+  border: 1px solid #e1e6ee;
+}
+
+.credential-role {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.role-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #edf4ff;
+  color: #2563eb;
+  font-weight: 800;
+}
+
+.credential-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf0f4;
+  font-size: 13px;
+}
+
+.credential-row span {
+  color: #788294;
+}
+
+.credential-row strong {
+  color: #263044;
+}
+
+.credential-button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 11px;
+  border: 1px solid #d6ddea;
+  border-radius: 7px;
+  background: white;
+  color: #2563eb;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   TECHNOLOGY
+===================================================== */
+
+.tech-section {
+  padding: 90px 8%;
+  text-align: center;
+  background: white;
+}
+
+.tech-list {
+  max-width: 850px;
+  margin: 35px auto 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tech-list span {
+  padding: 11px 18px;
+  border: 1px solid #dfe4ec;
+  border-radius: 30px;
+  background: #f8fafc;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.home-footer {
+  padding: 30px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #172033;
+  color: white;
+  font-size: 13px;
+}
+
+.home-footer div {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.home-footer span {
+  color: #aeb8c8;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .workflow-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .workflow-arrow {
+    transform: rotate(90deg);
+  }
+
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .home-navbar {
+    padding: 0 5%;
+  }
+
+  .nav-register {
+    display: none;
+  }
+
+  .hero-section {
+    padding: 65px 5%;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .hero-card {
+    width: auto;
+  }
+
+  .workflow-section,
+  .demo-section {
+    padding: 70px 5%;
+  }
+
+  .home-footer {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+}

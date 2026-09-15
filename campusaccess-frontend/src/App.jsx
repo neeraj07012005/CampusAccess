@@ -7,6 +7,8 @@ import {
   useNavigate
 } from "react-router-dom";
 
+import Home from "./pages/Home";
+
 import StudentDashboard from "./pages/StudentDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import GuardDashboard from "./pages/GuardDashboard";
@@ -49,10 +51,6 @@ function Login() {
 
     try {
 
-      // =================================================
-      // LOGIN
-      // =================================================
-
       const response = await fetch(
         `${API_URL}/user/login`,
         {
@@ -88,10 +86,6 @@ function Login() {
       }
 
 
-      // =================================================
-      // GET JWT
-      // =================================================
-
       const token = await response.text();
 
       console.log(
@@ -99,21 +93,11 @@ function Login() {
       );
 
 
-      // =================================================
-      // SAVE JWT
-      //
-      // sessionStorage keeps each browser tab separate.
-      // =================================================
-
       sessionStorage.setItem(
         "token",
         token
       );
 
-
-      // =================================================
-      // GET CURRENT USER ROLE
-      // =================================================
 
       const userResponse = await fetch(
         `${API_URL}/user/me`,
@@ -148,10 +132,6 @@ function Login() {
       }
 
 
-      // =================================================
-      // READ ROLE
-      // =================================================
-
       const roleResponse =
         await userResponse.text();
 
@@ -174,10 +154,6 @@ function Login() {
       );
 
 
-      // =================================================
-      // REDIRECT BASED ON ROLE
-      // =================================================
-
       if (role === "STUDENT") {
 
         navigate("/student");
@@ -197,8 +173,6 @@ function Login() {
       }
 
       else {
-
-        // Unknown role
 
         sessionStorage.removeItem(
           "token"
@@ -220,13 +194,9 @@ function Login() {
         error
       );
 
-
-      // Remove invalid token
-
       sessionStorage.removeItem(
         "token"
       );
-
 
       setMessage(
         "Login failed. Please check your credentials."
@@ -247,28 +217,21 @@ function Login() {
 
       <div className="login-box">
 
-
         <h1>
           CampusAccess
         </h1>
-
 
         <p>
           Visitor Management System
         </p>
 
-
         <form
           onSubmit={handleLogin}
         >
 
-
-          {/* USERNAME */}
-
           <label>
             Username
           </label>
-
 
           <input
             type="text"
@@ -281,13 +244,9 @@ function Login() {
           />
 
 
-
-          {/* PASSWORD */}
-
           <label>
             Password
           </label>
-
 
           <input
             type="password"
@@ -300,21 +259,14 @@ function Login() {
           />
 
 
-
-          {/* LOGIN BUTTON */}
-
           <button
             type="submit"
           >
             Login
           </button>
 
-
         </form>
 
-
-
-        {/* MESSAGE */}
 
         {message && (
 
@@ -325,15 +277,11 @@ function Login() {
         )}
 
 
-
-        {/* REGISTER */}
-
         <div className="register-link">
 
           <span>
             Don't have an account?
           </span>
-
 
           <button
             type="button"
@@ -346,14 +294,12 @@ function Login() {
 
         </div>
 
-
       </div>
 
     </div>
 
   );
 }
-
 
 
 // =====================================================
@@ -368,21 +314,23 @@ function App() {
 
       <Routes>
 
-
-        {/* =================================================
-            LOGIN
-        ================================================= */}
+        {/* HOME */}
 
         <Route
           path="/"
+          element={<Home />}
+        />
+
+
+        {/* LOGIN */}
+
+        <Route
+          path="/login"
           element={<Login />}
         />
 
 
-
-        {/* =================================================
-            REGISTER
-        ================================================= */}
+        {/* REGISTER */}
 
         <Route
           path="/register"
@@ -390,10 +338,7 @@ function App() {
         />
 
 
-
-        {/* =================================================
-            RESET PASSWORD
-        ================================================= */}
+        {/* RESET PASSWORD */}
 
         <Route
           path="/reset-password"
@@ -401,10 +346,7 @@ function App() {
         />
 
 
-
-        {/* =================================================
-            STUDENT
-        ================================================= */}
+        {/* STUDENT */}
 
         <Route
           path="/student"
@@ -412,10 +354,7 @@ function App() {
         />
 
 
-
-        {/* =================================================
-            ADMIN
-        ================================================= */}
+        {/* ADMIN */}
 
         <Route
           path="/admin"
@@ -423,23 +362,18 @@ function App() {
         />
 
 
-
-        {/* =================================================
-            GUARD
-        ================================================= */}
+        {/* GUARD */}
 
         <Route
           path="/guard"
           element={<GuardDashboard />}
         />
 
-
       </Routes>
 
     </BrowserRouter>
 
   );
-
 }
 
 
