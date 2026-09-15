@@ -7,6 +7,8 @@ import com.neeraj.campusaccess.security.JwtService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import org.springframework.http.HttpMethod;
+
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -27,7 +29,6 @@ public class SecurityConfig {
     private final JwtService jwtService;
     private final CustomUserDetailsService userDetailsService;
 
-
     // =========================
     // CONSTRUCTOR
     // =========================
@@ -39,7 +40,6 @@ public class SecurityConfig {
         this.jwtService = jwtService;
         this.userDetailsService = userDetailsService;
     }
-
 
     // =========================
     // JWT FILTER
@@ -54,7 +54,6 @@ public class SecurityConfig {
         );
     }
 
-
     // =========================
     // SECURITY
     // =========================
@@ -68,14 +67,12 @@ public class SecurityConfig {
                 // Disable CSRF because we are using JWT
                 .csrf(csrf -> csrf.disable())
 
-
                 // Enable CORS
                 .cors(cors ->
                         cors.configurationSource(
                                 corsConfigurationSource()
                         )
                 )
-
 
                 // Stateless JWT authentication
                 .sessionManagement(session ->
@@ -84,12 +81,14 @@ public class SecurityConfig {
                         )
                 )
 
-
                 // =========================
                 // AUTHORIZATION
                 // =========================
 
                 .authorizeHttpRequests(auth -> auth
+
+                        // Allow CORS preflight requests
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
                         // =========================
                         // PUBLIC ENDPOINTS
@@ -104,14 +103,12 @@ public class SecurityConfig {
                                 "/user/reset-password"
                         ).permitAll()
 
-
                         // =========================
                         // PROTECTED ENDPOINTS
                         // =========================
 
                         .anyRequest().authenticated()
                 )
-
 
                 // =========================
                 // JWT FILTER
@@ -122,10 +119,8 @@ public class SecurityConfig {
                         UsernamePasswordAuthenticationFilter.class
                 );
 
-
         return http.build();
     }
-
 
     // =========================
     // CORS
@@ -137,14 +132,12 @@ public class SecurityConfig {
         CorsConfiguration configuration =
                 new CorsConfiguration();
 
-
         configuration.setAllowedOrigins(
                 List.of(
                         "http://localhost:5173",
                         "https://campus-access-six.vercel.app"
                 )
         );
-
 
         configuration.setAllowedMethods(
                 List.of(
@@ -156,24 +149,19 @@ public class SecurityConfig {
                 )
         );
 
-
         configuration.setAllowedHeaders(
                 List.of("*")
         );
 
-
         configuration.setAllowCredentials(true);
-
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
-
 
         source.registerCorsConfiguration(
                 "/**",
                 configuration
         );
-
 
         return source;
     }
